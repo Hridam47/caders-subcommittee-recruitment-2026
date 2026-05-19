@@ -1,7 +1,6 @@
 import cadersLogo from "./assets/caders-logo.png";
 
-const GOOGLE_FORM_LINK = "https://forms.gle/9DUPzmj9DjCiyFbg9";
-const DEADLINE_TEXT = "Deadline: 18 May 2026";
+const STATUS_TEXT = "Initial Registration Closed";
 
 const clubDescription =
   "CADers (Computer Aided Designers) is one of the top CAD and engineering clubs in Bangladesh, founded at KUET in 2012 to promote creativity, innovation, and technical excellence among engineering students. Through workshops, seminars, competitions, and collaborative projects, CADers helps students develop practical skills in modern design and engineering technologies while building a strong community of future innovators and designers.";
@@ -12,7 +11,7 @@ const heroDescription =
 const navLinks = [
   { label: "Process", href: "#process" },
   { label: "Departments", href: "#departments" },
-  { label: "Apply", href: "#apply" },
+  { label: "Status", href: "#status" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -20,20 +19,23 @@ const recruitmentSteps = [
   {
     title: "Initial Submission",
     description:
-      "Fill out the online application with your interests, strengths, and preferred department.",
+      "Application submission phase has been completed successfully.",
     marker: "01",
+    status: "completed",
   },
   {
     title: "Interview",
     description:
-      "Shortlisted applicants will join a friendly conversation with CADers members.",
+      "Shortlisted applicants will receive interview mails soon. Stay prepared for the next phase.",
     marker: "02",
+    status: "active",
   },
   {
     title: "Task Assessment",
     description:
-      "Selected candidates may complete a small task to show commitment, creativity, and teamwork.",
+      "Selected candidates may complete a small task to demonstrate creativity, commitment, and teamwork.",
     marker: "03",
+    status: "upcoming",
   },
 ];
 
@@ -78,15 +80,25 @@ const departments = [
 
 const importantNotes = [
   "Eligibility: Batch 2k23 students of KUET.",
-  "Application is fully online through the Google Form.",
-  "Shortlisted candidates will be contacted for interview and task assessment.",
-  "Application deadline: 18 May 2026.",
+  "Initial registration has officially closed.",
+  "Initial screening process is currently ongoing.",
+  "Interview mails will be sent soon to shortlisted candidates.",
+  "Stay alert on official CADers platforms for further updates.",
 ];
 
 const socialLinks = [
-  { label: "Facebook Group", href: "https://www.facebook.com/groups/caders.kuet/" },
-  { label: "Facebook Page", href: "https://www.facebook.com/share/1Dyk7r5uSA/" },
-  { label: "YouTube", href: "http://www.youtube.com/@CADersKUET" },
+  {
+    label: "Facebook Group",
+    href: "https://www.facebook.com/groups/caders.kuet/",
+  },
+  {
+    label: "Facebook Page",
+    href: "https://www.facebook.com/share/1Dyk7r5uSA/",
+  },
+  {
+    label: "YouTube",
+    href: "http://www.youtube.com/@CADersKUET",
+  },
 ];
 
 function DepartmentIcon({ type }) {
@@ -154,27 +166,6 @@ function DepartmentIcon({ type }) {
   return icons[type] ?? icons.laptop;
 }
 
-function ApplyButton({ children = "Apply Now", variant = "primary" }) {
-  const variantClasses =
-    variant === "secondary"
-      ? "border border-lime-300/40 bg-white/5 text-lime-100 hover:border-lime-200 hover:bg-lime-300/10"
-      : "bg-lime-400 text-slate-950 shadow-glow hover:bg-green-300";
-
-  return (
-    <a
-      href={GOOGLE_FORM_LINK}
-      target="_blank"
-      rel="noreferrer"
-      className={`inline-flex min-h-12 items-center justify-center rounded-lg px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] transition duration-300 hover:-translate-y-0.5 ${variantClasses}`}
-    >
-      {children}
-      <span aria-hidden="true" className="ml-2 text-base">
-        ↗
-      </span>
-    </a>
-  );
-}
-
 function LogoMark({ className = "size-10" }) {
   return (
     <img
@@ -191,8 +182,9 @@ function App() {
       <div className="fixed inset-0 -z-10 blueprint-grid opacity-80" />
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_50%_10%,rgba(34,197,94,0.25),transparent_30rem)]" />
 
-      <div className="border-b border-lime-300/20 bg-lime-400/10 px-4 py-2 text-center text-xs font-semibold uppercase tracking-[0.24em] text-lime-100 sm:text-sm">
-        Recruitment for Batch 2k23 is now open.
+      <div className="border-b border-yellow-300/20 bg-yellow-400/10 px-4 py-2 text-center text-xs font-semibold uppercase tracking-[0.24em] text-yellow-100 sm:text-sm">
+        Initial Registration Closed • Recruitment Process Ongoing • Stay Alert
+        For Further Updates
       </div>
 
       <nav className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/82 backdrop-blur-xl">
@@ -203,6 +195,7 @@ function App() {
               CADers
             </span>
           </a>
+
           <div className="hidden items-center gap-6 md:flex">
             {navLinks.map((link) => (
               <a
@@ -214,52 +207,58 @@ function App() {
               </a>
             ))}
           </div>
-          <div className="hidden sm:block">
-            <ApplyButton>Apply</ApplyButton>
+
+          <div className="hidden rounded-lg border border-yellow-300/30 bg-yellow-400/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-yellow-100 sm:block">
+            {STATUS_TEXT}
           </div>
         </div>
       </nav>
 
-      <section id="top" className="relative min-h-[calc(100vh-96px)] overflow-hidden">
+      <section
+        id="top"
+        className="relative min-h-[calc(100vh-96px)] overflow-hidden"
+      >
         <div className="absolute inset-0 blueprint-grid opacity-60" />
         <div className="absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full border border-lime-200/20 md:h-[34rem] md:w-[34rem]" />
         <div className="cad-ring absolute -right-28 top-24 h-72 w-72 opacity-85 blur-[1px] md:h-[28rem] md:w-[28rem]" />
         <div className="cad-ring absolute -bottom-28 -left-24 h-80 w-80 opacity-65 blur-[1px]" />
-        <div className="absolute left-0 top-1/3 h-px w-full overflow-hidden bg-lime-200/20">
-          <div className="h-full w-1/2 animate-slow-scan bg-gradient-to-r from-transparent via-lime-200/70 to-transparent" />
-        </div>
 
         <div className="section-shell relative grid min-h-[calc(100vh-96px)] items-center gap-10 py-20 sm:py-24 lg:grid-cols-[1fr_360px] lg:py-28">
           <div className="max-w-4xl">
             <div className="mb-6 flex flex-wrap items-center gap-3">
-              <span className="animate-live-badge rounded-lg border border-red-300/40 bg-red-500/[0.16] px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-red-100">
-                Registration Live Now
+              <span className="rounded-lg border border-emerald-300/40 bg-emerald-500/[0.16] px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-emerald-100">
+                Initial Submission Completed
               </span>
-              <span className="rounded-lg border border-lime-300/30 bg-lime-300/[0.12] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-lime-100">
-                Batch 2k23
+
+              <span className="animate-pulse rounded-lg border border-lime-300/30 bg-lime-300/[0.12] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-lime-100">
+                Interview Phase Ongoing
               </span>
             </div>
 
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.32em] text-lime-200">
               SHARE YOUR CO-ORDINATES
             </p>
+
             <h1 className="max-w-5xl text-4xl font-black leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
               CADers Sub-Committee Recruitment 2026
             </h1>
+
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
               {heroDescription}
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <ApplyButton />
+              <div className="inline-flex min-h-12 items-center justify-center rounded-lg border border-yellow-300/30 bg-yellow-400/10 px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-yellow-100">
+                Registration Closed
+              </div>
+
               <a
-                href="#departments"
+                href="#status"
                 className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/20 bg-white/5 px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-white transition duration-300 hover:-translate-y-0.5 hover:border-lime-200/70 hover:bg-white/10"
               >
-                Explore Departments
+                Recruitment Status
               </a>
             </div>
-
           </div>
 
           <div className="relative hidden lg:block">
@@ -271,14 +270,18 @@ function App() {
         </div>
       </section>
 
-      <section id="process" className="border-y border-white/10 bg-slate-950/70 py-20 sm:py-24">
+      <section
+        id="process"
+        className="border-y border-white/10 bg-slate-950/70 py-20 sm:py-24"
+      >
         <div className="section-shell">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-lime-200">
               Recruitment Process
             </p>
+
             <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">
-              Three clear steps from application to selection.
+              Recruitment process is currently progressing.
             </h2>
           </div>
 
@@ -286,16 +289,43 @@ function App() {
             {recruitmentSteps.map((step) => (
               <article
                 key={step.title}
-                className="group rounded-lg border border-white/10 bg-white/[0.045] p-6 transition duration-300 hover:-translate-y-1 hover:border-lime-200/60 hover:bg-white/[0.07]"
+                className={`group rounded-lg border p-6 transition duration-300 hover:-translate-y-1 ${
+                  step.status === "completed"
+                    ? "border-emerald-300/40 bg-emerald-500/[0.08]"
+                    : step.status === "active"
+                    ? "border-lime-300/50 bg-lime-400/[0.08] shadow-glow"
+                    : "border-white/10 bg-white/[0.045]"
+                }`}
               >
                 <div className="mb-7 flex items-center justify-between">
                   <span className="text-5xl font-black text-white/10 transition group-hover:text-lime-200/30">
                     {step.marker}
                   </span>
+
                   <span className="h-px flex-1 bg-gradient-to-r from-lime-300/60 to-transparent" />
                 </div>
-                <h3 className="text-xl font-bold text-white">{step.title}</h3>
-                <p className="mt-3 leading-7 text-slate-300">{step.description}</p>
+
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-xl font-bold text-white">
+                    {step.title}
+                  </h3>
+
+                  {step.status === "completed" && (
+                    <span className="rounded-full border border-emerald-300/40 bg-emerald-400/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-100">
+                      Completed
+                    </span>
+                  )}
+
+                  {step.status === "active" && (
+                    <span className="animate-pulse rounded-full border border-lime-300/40 bg-lime-400/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-lime-100">
+                      Ongoing
+                    </span>
+                  )}
+                </div>
+
+                <p className="mt-3 leading-7 text-slate-300">
+                  {step.description}
+                </p>
               </article>
             ))}
           </div>
@@ -309,10 +339,12 @@ function App() {
               <p className="text-sm font-semibold uppercase tracking-[0.28em] text-lime-200">
                 About CADers Club
               </p>
+
               <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">
                 A community for design minds.
               </h2>
             </div>
+
             <p className="leading-8 text-slate-300">{clubDescription}</p>
           </div>
         </div>
@@ -325,10 +357,12 @@ function App() {
               <p className="text-sm font-semibold uppercase tracking-[0.28em] text-lime-200">
                 Departments
               </p>
+
               <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">
                 Choose where your energy fits best.
               </h2>
             </div>
+
             <p className="max-w-sm leading-7 text-slate-300">
               Pick the team that matches your skills, curiosity, or the area you
               want to grow into this year.
@@ -342,12 +376,17 @@ function App() {
                 className="group relative overflow-hidden rounded-lg border border-white/10 bg-slate-900/70 p-6 transition duration-300 hover:-translate-y-1 hover:border-lime-200/60 hover:shadow-glow"
               >
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-lime-300 via-green-400 to-emerald-300 opacity-80" />
+
                 <div className="flex items-start gap-4">
                   <span className="grid size-12 shrink-0 place-items-center rounded-lg border border-lime-200/25 bg-lime-300/10 text-lime-100 transition group-hover:scale-105 group-hover:text-lime-50">
                     <DepartmentIcon type={department.icon} />
                   </span>
+
                   <div>
-                    <h3 className="text-lg font-bold text-white">{department.name}</h3>
+                    <h3 className="text-lg font-bold text-white">
+                      {department.name}
+                    </h3>
+
                     <p className="mt-3 leading-7 text-slate-300">
                       {department.description}
                     </p>
@@ -359,56 +398,69 @@ function App() {
         </div>
       </section>
 
-      <section className="border-y border-white/10 bg-lime-400/[0.04] py-14">
+      <section
+        id="status"
+        className="border-y border-white/10 bg-lime-400/[0.04] py-14"
+      >
         <div className="section-shell">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-4xl rounded-lg border border-lime-300/20 bg-slate-900/70 p-8 text-center shadow-glow">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-lime-200">
-              Application Deadline
+              Recruitment Status
             </p>
-            <h2 className="mt-3 text-2xl font-black text-white sm:text-3xl">
-              {DEADLINE_TEXT}
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl leading-7 text-slate-300">
-              Submit your application before the deadline and watch the official
-              channels for shortlist updates.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      <section id="apply" className="relative py-20 sm:py-24">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.22),transparent_28rem)]" />
-        <div className="section-shell">
-          <div className="mx-auto max-w-4xl rounded-lg border border-lime-200/25 bg-slate-900/85 p-6 text-center shadow-glow backdrop-blur sm:p-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-lime-200">
-              Online Application
-            </p>
             <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">
-              Submit Your Application
+              Initial Screening In Progress
             </h2>
+
             <p className="mx-auto mt-4 max-w-2xl leading-8 text-slate-300">
-              Tell us where you want to contribute and what you are excited to
-              learn. A thoughtful application matters more than having everything
-              figured out already.
+              Initial registration has officially closed. The CADers recruitment team is currently evaluating submissions and shortlisting candidates for the interview phase.
             </p>
-            <div className="mt-8">
-              <ApplyButton>APPLY BEFORE DEADLINE (GOOGLE FORM)</ApplyButton>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              <div className="rounded-lg border border-emerald-300/30 bg-emerald-500/[0.08] p-5 text-left">
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-100">
+                  Step 1 Completed
+                </p>
+
+                <p className="mt-2 text-slate-200">
+                  Initial submission phase has been completed successfully.
+                </p>
+              </div>
+
+              <div className="rounded-lg border border-lime-300/30 bg-lime-400/[0.08] p-5 text-left shadow-glow">
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-lime-100">
+                  Interview Phase
+                </p>
+
+                <p className="mt-2 text-slate-200">
+                  Interview mails will be sent soon to shortlisted applicants.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-lg border border-yellow-300/30 bg-yellow-400/10 px-6 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-yellow-100">
+              Stay Alert For Further Updates
             </div>
           </div>
         </div>
       </section>
 
-      <section id="faq" className="border-t border-white/10 bg-slate-950/75 py-20 sm:py-24">
+      <section
+        id="faq"
+        className="border-t border-white/10 bg-slate-950/75 py-20 sm:py-24"
+      >
         <div className="section-shell">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.28em] text-lime-200">
                 FAQ and Notes
               </p>
+
               <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">
-                Important details before you apply.
+                Important recruitment updates.
               </h2>
             </div>
+
             <div className="grid gap-4">
               {importantNotes.map((note) => (
                 <div
@@ -427,14 +479,20 @@ function App() {
         <div className="section-shell flex flex-col justify-between gap-6 md:flex-row md:items-center">
           <div className="flex items-center gap-4">
             <LogoMark className="size-12" />
+
             <div>
               <p className="text-lg font-black text-white">CADers Club</p>
+
               <p className="mt-1 text-sm text-slate-400">
                 Khulna University of Engineering & Technology
               </p>
-              <p className="mt-2 text-slate-400">SHARE YOUR CO-ORDINATES</p>
+
+              <p className="mt-2 text-slate-400">
+                SHARE YOUR CO-ORDINATES
+              </p>
             </div>
           </div>
+
           <div className="flex flex-wrap gap-3">
             {socialLinks.map((link) => (
               <a
@@ -453,5 +511,6 @@ function App() {
     </main>
   );
 }
+
 
 export default App;
